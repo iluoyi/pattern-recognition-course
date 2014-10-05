@@ -1,0 +1,94 @@
+% CSE426 Pattern Recognition
+% Yi Luo (yil712)
+
+>>Task A.
+1. Answer:
+The threshold I got was T = 222. The decision rule I found was:
+if (black-area <= 222) decide 'c'; else decide 'e'. 
+
+The statistics is as follows (f_c and f_e are misclassification
+of c and e respectively):
+f_c		f_e		error_rate		sample_per_class
+22		4		0.0650			200
+
+2. Answer:
+data	f_c		f_e		error_rate
+2		27		7		0.0850
+3		26		8		0.0850
+4		20		4		0.0600
+5		30		5		0.0875
+6		22		7		0.0725
+7		21		4		0.0625
+8		21		6		0.0675
+9		19		0		0.0475
+10		23		6		0.0725
+mean = 0.0711
+std = 0.0134
+
+3. Discussion:
+The average error rate on the other nine test dataset (0.0711) is 
+higher than on the training dataset (0.0650). Because the threshold 
+classifier (T = 222) was learnt from the training dataset, it conveys
+the intrinsic information of the training dataset. If we apply it back
+to the training dataset, we always obtain a good performance. Therefore,
+to really test the classifier, we should apply it on a new test dataset,
+which contributes no information to the construction of the classifier.
+This is what we've done in TaskA_2. As a result, the error rate on the
+test dataset is larger than on the training set.
+
+>>Task B.
+1. Answer:
+The threshold I got was T = 228. The decision rule I found was:
+if (black-area <= 228) decide 'c'; else decide 'e'. 
+
+The statistics is as follows (f_c and f_e are misclassification
+of c and e respectively):
+f_c		f_e		error_rate		sample_per_class
+84		52		0.0680			1000
+
+2. Answer:
+The statistics is as follows (f_c and f_e are misclassification
+of c and e respectively):
+f_c		f_e		error_rate		sample_per_class
+78		48		0.0630			1000
+
+3. Discussion:
+Through the comparison between the result of B-1 (0.0680) and the
+result of B-2 (0.0630), the difference is not significant. However,
+theoretically, the error rate of B-2 should be greater than that of 
+B-1 because the result is on the training set in B-1 and on the test
+set in B-2. As we mentioned above, the test set which contributes no
+information to the classifier often leads to poorer performance than 
+the training set. But to test classifiers on the test set is the right
+way to evaluate the performance.
+Compared with the result from Task A, the error rate in B (0.0630) is 
+smaller than the average error rate in A (0.0711). The reason is that we 
+have a larger training set which contains more samples and covers more
+scenarios so the classifier usually has a better performance.
+
+
+>>Task C.
+1&2. Answer:
+The statistics is as follows (f_c and f_e are misclassification
+of c and e respectively):
+test_data		threshold		f_c		f_e		error_rate
+1				227   			19   	11    	0.0750
+2  				229   			19   	13    	0.0800
+3  				227   			15   	14    	0.0725
+4  				227   			15    	7    	0.0550
+5  				227  			21   	10    	0.0775
+6  				229   			15   	13    	0.0700
+7  				227   			18    	7    	0.0625
+8  				227   			17   	11    	0.0700
+9  				227   			15    	4    	0.0475
+10  			227   			13    	8    	0.0525
+mean = 0.0663
+std = 0.0113
+
+3. Discussion:
+Dose the mean error computed using jacknifing seem closer to the "true"
+error rate of this feature?
+Yes, the average error rate of Task C is lower than in Task A/Task B.
+Because in Task C, we have a larger training set than both Task A and B, 
+which contains more samples and covers more scenarios so the classifier 
+usually has a better performance.
